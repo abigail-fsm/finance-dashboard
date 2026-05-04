@@ -1,14 +1,15 @@
 # AWS (account 297063078864, us-west-2) — provisioned via CLI:
 #   S3:     s3://fsm-finance-dashboard-297063078864
 #   OAC:    E132OH94KFZLK2
-#   CF:     E24EIPWI6ZPYBY  →  https://d3glwhukv87k4z.cloudfront.net
+#   CF:     E24EIPWI6ZPYBY  →  https://finance.fullsend.management  (alternate: d3glwhukv87k4z.cloudfront.net)
 # See infrastructure/ for CloudFront config JSON and bucket policy template.
 #
 # Secrets: AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY (IAM user must allow s3:PutObject on
 # the bucket and cloudfront:CreateInvalidation on the distribution).
 #
-# Set repository secret VITE_API_URL to your production API origin (no trailing slash),
-# e.g. https://finance.fullsend.management — required at build time for Vite.
+# Set repository secret VITE_API_URL to your production API base URL (no trailing slash).
+# Must NOT be this SPA hostname: CloudFront only serves static files. Point at wherever
+# Express serves /api (e.g. https://api.finance.fullsend.management or your backend host).
 name: Deploy Finance Dashboard to S3/CloudFront
 
 on:

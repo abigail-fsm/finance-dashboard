@@ -1,0 +1,62 @@
+{
+  "CallerReference": "fsm-finance-dashboard-2026-04-27-cli",
+  "Comment": "FSM Finance Dashboard static site",
+  "Aliases": {
+    "Quantity": 1,
+    "Items": ["finance.fullsend.management"]
+  },
+  "DefaultRootObject": "index.html",
+  "Origins": {
+    "Quantity": 1,
+    "Items": [
+      {
+        "Id": "S3-fsm-finance-dashboard",
+        "DomainName": "fsm-finance-dashboard-297063078864.s3.us-west-2.amazonaws.com",
+        "OriginPath": "",
+        "CustomHeaders": { "Quantity": 0 },
+        "S3OriginConfig": { "OriginAccessIdentity": "" },
+        "ConnectionAttempts": 3,
+        "ConnectionTimeout": 10,
+        "OriginAccessControlId": "E132OH94KFZLK2"
+      }
+    ]
+  },
+  "DefaultCacheBehavior": {
+    "TargetOriginId": "S3-fsm-finance-dashboard",
+    "ViewerProtocolPolicy": "redirect-to-https",
+    "AllowedMethods": {
+      "Quantity": 2,
+      "Items": ["GET", "HEAD"],
+      "CachedMethods": { "Quantity": 2, "Items": ["GET", "HEAD"] }
+    },
+    "SmoothStreaming": false,
+    "Compress": true,
+    "FieldLevelEncryptionId": "",
+    "MinTTL": 0,
+    "DefaultTTL": 0,
+    "MaxTTL": 31536000,
+    "TrustedSigners": { "Enabled": false, "Quantity": 0 },
+    "TrustedKeyGroups": { "Enabled": false, "Quantity": 0 },
+    "ForwardedValues": {
+      "QueryString": false,
+      "Cookies": { "Forward": "none" }
+    }
+  },
+  "CacheBehaviors": { "Quantity": 0, "Items": [] },
+  "CustomErrorResponses": { "Quantity": 0, "Items": [] },
+  "Enabled": true,
+  "HttpVersion": "http2and3",
+  "IsIPV6Enabled": true,
+  "PriceClass": "PriceClass_100",
+  "Restrictions": {
+    "GeoRestriction": { "RestrictionType": "none", "Quantity": 0, "Items": [] }
+  },
+  "ViewerCertificate": {
+    "CloudFrontDefaultCertificate": false,
+    "ACMCertificateArn": "arn:aws:acm:us-east-1:297063078864:certificate/3618e182-22c4-4c54-8359-92ce062c23b5",
+    "SSLSupportMethod": "sni-only",
+    "MinimumProtocolVersion": "TLSv1.2_2021",
+    "CertificateSource": "acm"
+  },
+  "WebACLId": ""
+}

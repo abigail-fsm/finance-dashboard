@@ -38,9 +38,13 @@ npm run build   # output in dist/
 npm run preview
 ```
 
-## Deploy (GitHub Actions → S3)
+## Deploy (GitHub Actions → S3 → CloudFront)
 
-Configure repository secret **`VITE_API_URL`** to your public API origin (no trailing slash), e.g. `https://finance.fullsend.management`. The workflow runs `npm install && npm run build` then syncs **`dist/`** to S3.
+Production UI: **[https://finance.fullsend.management](https://finance.fullsend.management)** (same distribution as CloudFront hostname `d3glwhukv87k4z.cloudfront.net`).
+
+The workflow runs `npm install && npm run build` then syncs **`dist/`** to S3.
+
+Configure **`VITE_API_URL`** so the baked-in API origin matches your **backend** (no trailing slash)—not this SPA hostname, because CloudFront only serves static assets. Example: **`https://api.finance.fullsend.management`** once that host terminates TLS and proxies to Express.
 
 ## Live Demo
 
