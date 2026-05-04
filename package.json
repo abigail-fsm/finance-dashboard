@@ -1,7 +1,7 @@
 {
   "name": "finance-dashboard",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Web interface for uploading and analyzing FSM portfolio financial statements.",
   "type": "module",
   "scripts": {
